@@ -1,9 +1,9 @@
 #!/bin/bash -ex
 
-KMS_KEY_ID=xxxxx
-KMS_KEY_REGION=xxxx
-KEY_DIR=xxxxx
-TARGET_BUCKET=xxxx
+KMS_KEY_ID=$1
+KMS_KEY_REGION=$2
+KEY_DIR=$3
+TARGET_BUCKET=$4
 
 for key in "${KEY_DIR}"/*.key;
 do

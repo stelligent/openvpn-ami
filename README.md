@@ -35,7 +35,7 @@ before they were pushed to S3.
 
 To get all the relevant artifacts up to S3, there is a convenience script:
 
-    bin/encrypt_keys_with_kms.sh <kms_key_arn> <key region> <key dir> <s3 target bucket>
+    bin/encrypt_keys_with_kms_and_copy_to_s3.sh <kms_key_arn> <key region> <key dir> <s3 target bucket>
 
 On a Mac with Tunnelblick, you likely want this for the "key dir":
 
