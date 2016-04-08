@@ -13,7 +13,7 @@ On a Mac, install Tunnelblick and then select "Open easy-rsa in Terminal" from t
 
 From there, follow the instructions at: https://openvpn.net/index.php/open-source/documentation/howto.html
 
-Be sure to run build-sh with 2048:
+Be sure to run build-dh with 2048:
 
     KEY_SIZE=2048 ./build-dh 
     
@@ -36,7 +36,7 @@ To get all these artifacts up to S3, there is a convenience script:
 
     bin/encrypt_keys_with_kms.sh <kms_key_arn> <key region> <key dir> <s3 target bucket>
 
-On a Mac with Tunnelblick, you likely want this for the <key dir>:
+On a Mac with Tunnelblick, you likely want this for the "key dir":
 
     ~/Library/Application\ Support/Tunnelblick/easy-rsa/keys
     
