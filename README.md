@@ -7,6 +7,23 @@ The run-list for the AMI lays down the OpenVPN software but doesn't lay down any
 The cookbook includes recipes that can be invoked (in user data) when the instance is brought up to
 pull the server and client keys from an S3 bucket.
 
+In the S3 bucket, the expected layout is:
+
+    /server.crt
+    /server.key.enc
+    /ca.crt
+    /dh2048.pem
+
+And then per client:
+
+    /clients/client1/client1.key
+    /clients/client1/client1.crt
+    .
+    .
+    .
+    /clients/clientN/clientN.key
+    /clients/clientN/clientN.crt
+
 # Generating Keys
 
 On a Mac, install Tunnelblick and then select "Open easy-rsa in Terminal" from the Utilities menu.
