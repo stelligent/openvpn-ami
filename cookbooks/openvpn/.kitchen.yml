@@ -1,0 +1,26 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+    driver_plugin: vagrant
+
+suites:
+  - name: default
+    run_list:
+      - recipe[openvpn::default]
+      - recipe[openvpn::userdata]
+    attributes:
+      aws:
+        aws_access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+        aws_secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+        region: us-west-2
+      openvpn:
+        credentials_bucket: dev-vpc-vpn-credentials-bucket
+        vpc_cidr: 10.0.0.0/16
+      kms:
+        key_region: us-west-2

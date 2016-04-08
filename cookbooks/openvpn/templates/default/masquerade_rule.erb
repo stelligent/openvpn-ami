@@ -1,0 +1,2 @@
+*nat
+-A POSTROUTING -s <%= @vpc_cidr %> -o <%= @network_interface %> -j MASQUERADE
