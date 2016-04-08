@@ -25,14 +25,15 @@ These instructions will generate a bunch of certificates and keys including:
   * clients 1-n crt and key
   * dh2048.pem
   
-All of these items will need to be loaded onto an OpenVPN instance and some of them are sensitive.
+Most of these items will need to be loaded onto an OpenVPN instance and some of them are sensitive.  See the 
+aforementioned howto guide on which items are sensitive - there is an easy-to-follow table.
    
 The load_keys recipe called from userdata expects to find these files in an S3 bucket and for the
 key files to be encrypted with KMS.  The instance must be running in EC2 with an instance profile
 that allows permission to decrypt with the KMS key the credentials were encrypted with originally
 before they were pushed to S3.
 
-To get all these artifacts up to S3, there is a convenience script:
+To get all the relevant artifacts up to S3, there is a convenience script:
 
     bin/encrypt_keys_with_kms.sh <kms_key_arn> <key region> <key dir> <s3 target bucket>
 
