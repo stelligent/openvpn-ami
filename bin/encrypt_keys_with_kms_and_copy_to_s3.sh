@@ -26,8 +26,9 @@ for key in $(ls *.key.enc);
 do
   if [[ ${key} != server.key.enc && ${key} != ca.key.enc ]];
   then
-    aws s3 cp ${key} s3://${TARGET_BUCKET}/clients/${key//.key.enc/}/${key}
+    client_name=${key//.key.enc/}
+    aws s3 cp ${key} s3://${TARGET_BUCKET}/clients/${client_name}/${key}
 
-    aws s3 cp "${KEY_DIR}"/${key//.key.enc/}.crt s3://${TARGET_BUCKET}/clients/${key//.key.enc/}/${key//.key.enc/}.crt
+    aws s3 cp "${KEY_DIR}"/${client_name}.crt s3://${TARGET_BUCKET}/clients/${client_name}/${client_name}.crt
   fi
 done
